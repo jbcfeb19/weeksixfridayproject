@@ -1,0 +1,61 @@
+body {
+    margin: 30px auto 30px auto;
+    font-family: Verdana;
+    width: 85%;
+}
+
+div.jumbotron {
+    background: #C8E0F2 url("../img/funky-lines.png") repeat right top;
+    padding-top: 10%;
+}
+
+h1 {
+    font-family: Verdana;
+    font-weight:bold;
+}
+
+a.nav-link {
+    color: #EA6A4E;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+.user-img {
+    width: 250px;
+    height: 150px;
+    display: block;
+    text-align: center;
+}
+
+.card {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.card-link {
+    display: block;
+    text-align: center;
+}
+
+.logo {
+     width: 50px;
+     height: 50px;
+     background-color: #F8BC28;
+     border-radius: 5px;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    display: table-cell;
+    vertical-align: center;
+    horiz-align: center;
+}
+
+.cat-btn {
+    display: inline-grid;
+    background-color: #C4D8EC;
+    padding: 10px;
+    border-radius: 7px;
+    margin: 3px;
+}

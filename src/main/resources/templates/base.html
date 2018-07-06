@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head th:fragment="header">
+    <meta charset="UTF-8"/>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div th:fragment="nav">
+    <nav class="navbar navbar-expand-sm bg-light fixed-top">
+
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <div class="logo"><img th:src="@{/img/car-logo3.png}" alt="Logo" /> </div>
+            <li class="nav-item">
+                <a class="nav-link" href="/">Cars Listing</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/addcategory">Add Category</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/addcar">Add Car</a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <div class="jumbotron text-center">
+        <h1>Thrifty Dealers</h1>
+    </div>
+</div>
+</body>
+</html>

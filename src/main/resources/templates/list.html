@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <title>Cars Listing</title>
+    <th:block th:insert="base :: header"></th:block>
+</head>
+<body>
+    <div th:replace="base :: nav"></div>
+
+    <!--<div th:if="${not #lists.isEmpty(messages}">No content yet.</div>-->
+
+    <p class="row">
+        <span th:each="category : ${categories}">
+            <span class="cat-btn"><a th:href="@{/detailcategory/{id}(id=${category.id})}">[[${category
+                .categoryName}]]</a></span>
+        </span>
+    </p>
+
+    <div class="row text-center">
+        <div th:each="car : ${cars}">
+
+            <div class="col-sm-3">
+                <div class="card text-center">
+                    <div class="card-header text-center"><span
+                            th:text="${car.manufacturer + ' ' +  car.model}"></span></div>
+                    <div class="card-body">
+                        <div th:if="${car.carURL != ''}">
+                            <img class="card-img-top user-img" th:src="${car.carURL}" alt="car">
+                        </div>
+                        <a class="card-link btn btn-warning"
+                                        th:href="@{/detail/{id}(id=${car.id})}">More
+                        Info</a>
+                    </div>
+                </div>
+            </div><!--end div class col-->
+
+        </div><!--end div th:each-->
+    </div><!--end div class row-->
+
+</body>
+</html>

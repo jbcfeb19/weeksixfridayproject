@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <title>View Car Detail</title>
+    <th:block th:insert="base :: header"></th:block>
+</head>
+<body>
+    <div th:replace="base :: nav"></div>
+
+    <p/>
+
+    <div class="col-xs text-center">
+
+        <div class="card">
+            <div class="card-body">
+                <div th:if="${car.carURL != ''}">
+                    <img class="card-img-top user-img" th:src="${car.carURL}" alt="car">
+                </div>
+                <h4 class="card-title text-center"><span th:text="${car.manufacturer + ' ' +  car.model}"></span></h4>
+                <p class="card-text"><strong>Category: </strong><span th:text="${car.category.categoryName}"></span></p>
+                <p class="card-text"><strong>Year: </strong><span th:text="${car.year}"></span></p>
+                <p class="card-text"><strong>MSRP: $</strong><span
+                        th:text="${#numbers.formatDecimal(car.msrp, 0, 'COMMA', 2, 'POINT')}"></span></p>
+                <div class="text-center">
+                    <a class="btn btn-warning" th:href="@{/update/{id}(id=${car.id})}">Update</a>
+                    <a class="btn btn-warning" th:href="@{/delete/{id}(id=${car.id})}">Delete</a>
+                </div>
+            </div>
+        </div>
+
+    </div><!--end div class col-xs-->
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <title>Add New Car</title>
+    <th:block th:insert="base :: header"></th:block>
+</head>
+<body>
+
+<div th:replace="base :: nav"></div>
+
+<p/>
+
+<form action="#"
+      th:action="@{/processcar}"
+      th:object="${car}"
+      enctype="multipart/form-data"
+      method="post">
+
+    <input type="hidden" th:field="*{id}">
+
+    <div class="form-group">
+        <label for="manufacturer">Manufacturer:</label>
+        <input class="form-control" type="text" id="manufacturer" th:field="*{manufacturer}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="model">Model:</label>
+        <input class="form-control" type="text" id="model" th:field="*{model}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="year">Year:</label>
+        <input class="form-control" type="text" id="year" th:field="*{year}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="msrp">MSRP:</label>
+        <input class="form-control" type="text" id="msrp" th:field="*{msrp}"/>
+    </div>
+
+    <div class="form-group">
+        <label for="category">Category:</label>
+        <select name="category" id="category" class="custom-select" th:field="*{category}">
+            <option value="">Select Category</option>
+            <option th:each="category : ${categories}"
+                    th:value="${category.id}"
+                    th:utext="${category.categoryName}"/>
+        </select>
+    </div>
+
+    <div th:if="${imageURL != null}">
+        <img th:src="${imageURL}" alt="meme image"/>
+    </div>
+
+    <input type="hidden" th:value="${imageURL}" name="hiddenImgURL"/>
+
+    <div class="form-group">
+        <span th:inline="text">[[${imageLabel}]]</span>: <input class="form-control-file" type="file" name="file"/>
+    </div>
+
+    <input class="submit-btn" type="submit" value="Submit"/>
+</form>
+</body>
+</html>
