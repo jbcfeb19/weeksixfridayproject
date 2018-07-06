@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Set;
@@ -13,8 +16,10 @@ public class Category {
     private String categoryName;
 
     @OneToMany(mappedBy = "category",
-        cascade = CascadeType.ALL,
-        fetch = FetchType.EAGER)
+            fetch = FetchType.EAGER,
+            orphanRemoval = true,
+            cascade = CascadeType.REMOVE )
+    @Fetch(value = FetchMode.SUBSELECT)
     public Set<Car> cars;
 
     public long getId() {
