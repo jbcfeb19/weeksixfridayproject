@@ -17,7 +17,9 @@
                     <img class="card-img-top user-img" th:src="${car.carURL}" alt="car">
                 </div>
                 <h4 class="card-title text-center"><span th:text="${car.manufacturer + ' ' +  car.model}"></span></h4>
-                <p class="card-text"><strong>Category: </strong><span th:text="${car.category.categoryName}"></span></p>
+                <p class="card-text"><strong>Category: </strong><span
+                        th:if="${car.category != null}"><span
+                        th:text="${car.category.categoryName}"></span></span></p>
                 <p class="card-text"><strong>Year: </strong><span th:text="${car.year}"></span></p>
                 <p class="card-text"><strong>MSRP: $</strong><span
                         th:text="${#numbers.formatDecimal(car.msrp, 0, 'COMMA', 2, 'POINT')}"></span></p>

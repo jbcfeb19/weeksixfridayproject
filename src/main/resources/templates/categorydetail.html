@@ -13,7 +13,7 @@
         <div th:each="car : ${cars}">
 
             <div class="col-sm-3">
-                <div th:if="${car.category.id == category.id}">
+                <!--<div th:if="${car.category.id == category.id}">-->
                     <div class="card text-center">
                     <div class="card-header text-center"><span
                             th:text="${car.manufacturer + ' ' +  car.model}"></span></div>
@@ -26,7 +26,7 @@
                             Info</a>
                         </div>
                     </div>
-                </div><!--end div class th:if-->
+                <!--</div>&lt;!&ndash;end div class th:if&ndash;&gt;-->
             </div><!--end div class col-->
 
         </div><!--end div th:each-->
